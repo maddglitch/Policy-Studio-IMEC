@@ -15,6 +15,7 @@ lpi <- select(lpi_raw, country, iso, year, indicator_code, value)
 lpi <- filter(lpi, indicator_code == "LP.LPI.CUST.XQ")
 
 # mutate(): add a region column for each economy
+lpi <- mutate(lpi,
   region = case_when(
     iso == "IND" ~ "India",
     iso %in% c("ARE", "SAU", "QAT", "KWT", "BHR", "OMN") ~ "Gulf",
