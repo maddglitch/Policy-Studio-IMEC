@@ -1,0 +1,6 @@
+region_dti,corridor_segment,avg_restrictions,avg_enabling,binding_open_data_commitments,note
+South Asia,India,55.7,low (India 13),none,Most restrictive region; India 82 restrictions (region high)
+MENA,Gulf + Jordan,44.6,low (Bahrain 14),none,2nd most restrictive; Oman 30 (low) to Egypt 67; UAE/Qatar not in DTI sample
+East Asia & Pacific,ASEAN benchmark,41.4,12.8,some (10 countries),Indonesia 74 (2nd most restrictive globally); Singapore best on enabling
+Europe (ECA/EU),Europe,33.8,17.1,yes (EU),EU range 28-43 restrictions; high enabling but few adopt UNCITRAL e-commerce/e-sig model laws
+Global average,—,34.5,11.1,51 of ~163 countries,Global benchmark

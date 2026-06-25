@@ -1,0 +1,113 @@
+# Sources and citations
+
+Every dataset and key figure used in this project, with its source and what it
+backs. Access dates June 2026 unless noted. Data pulls are 2023 reference year
+unless noted.
+
+## Primary datasets
+
+**UN Global Survey on Digital and Sustainable Trade Facilitation (UNTFS)**
+United Nations (2025), *Digital and Sustainable Trade Facilitation: Global
+Report 2025*, UN ESCAP, Bangkok. Dashboard: https://www.untfsurvey.org/ (Global
+Data and Economy Briefs). Waves 2015–2025. Backs: `untfs_corridor_raw.csv`,
+readiness scorecard, the "built" layer of the staircase. NB the implementation
+percentages were reconstructed from the dashboard's raw scores — see
+`data/raw/untfs_corridor_NOTES.md` and METHODS 2.2.
+
+**World Bank Logistics Performance Index (LPI)**
+World Bank, *Logistics Performance Index*, Indicators API source 51;
+https://lpi.worldbank.org/ and https://data360.worldbank.org/. Rounds 2007–2023
+(latest data point 2022). Backs: `lpi_corridor_raw.csv`, the "performing" layer.
+
+**WTO Trade Facilitation Agreement Database (TFAD)**
+World Trade Organization, *TFA Database*, https://tfadatabase.org/ (Matrix of
+current rate of implementation commitments; Member profiles; Art. 10.4 single
+window). Backs: `wto_tfa_corridor.csv`, the "legal commitment" layer. Developing
+members read directly from the matrix; EU members inferred at 100% from the
+developed-member entry-into-force rule (22 Feb 2017) — flagged in the CSV.
+
+**UN Comtrade (trade volumes)**
+UN Comtrade, https://comtradeapi.un.org/ (public preview API), **2019–2023 goods**
+(5-year panel), HS classification; EU as reporter (code 97, extra-EU). Backs:
+`corridor_trade_multiyear.csv` (per-year) and `corridor_trade_flows.csv` (5-yr
+avg). HS27 (mineral fuels) used for energy shares: India imports from UAE 45%;
+EU 2023 HS27 imports from Saudi $33.8bn, UAE $9.6bn, Qatar $11.3bn, India $9.15bn.
+
+**OECD / trade-facilitation cost literature (savings Method 2)**
+OECD Trade Facilitation Indicators and ESCAP estimates that cross-border
+paperless trade reduces trade costs by ~10–30% of transaction costs, with
+documentary/procedural costs a low single-digit share of trade value. Used for
+the independent second savings estimate (`savings_model.R`, Method 2).
+
+**Digital Trade Integration (DTI) database**
+Ferracane, M.F., Lee-Makiyama, H., & van der Marel, E. (lead authors), DTI
+Project, European University Institute; and "Global Trends in Digital Trade
+Policies and Practices: Evidence from the Digital Trade Integration Database,"
+*World Trade Review* (2026), 25, 127–151, doi:10.1017/S1474745625100955.
+Database (network-blocked on UAE side): https://dti.eui.eu/. Backs:
+`dti_region_summary.csv`, `dti_corridor_NOTES.md`. Figures are 2023 policy counts
+from the paper; UAE and Qatar are not in the paper's country sample.
+
+## Cross-border legal layer
+
+**CPTA — Framework Agreement on Cross-border Paperless Trade in Asia and the
+Pacific**
+UN ESCAP, https://www.unescap.org/projects/cpta and ESCAP Cross-Border Paperless
+Trade Database https://www.digitalizetrade.org/. In force 20 Feb 2021. Parties
+incl. Philippines (2019), Thailand (2025).
+
+**UAE CEPA network** — UAE Ministry of Economy & Tourism,
+https://www.moet.gov.ae/en/cepa. Per-agreement digital-chapter verification
+(`uae_cepa_digital_verification.csv`):
+- India — Digital Policy Alert; ELP Law analysis.
+- Indonesia — ESCAP Cross-Border Paperless Trade Database (e-CoO exchange + AEO).
+- Israel — PwC Middle East (Ch 9, Arts 9.6/9.7/9.8); pwc.com/m1.
+- Vietnam — VCCI/WTO Center Vietnam; Vietnam Briefing (Ch 9 Digital Trade).
+- Malaysia — ATB Legal; Dagang Net.
+- Jordan — PwC Middle East (Ch 4 Art 4.5 paperless + AEO mutual admin assistance).
+- Türkiye — ATB Legal.
+
+**UAE–EU CEPA (negotiating)** — European Commission, "EU and UAE agree to launch
+free trade talks" (10 Apr 2025), https://ec.europa.eu/commission/presscorner/
+detail/en/read_25_1043 and https://policy.trade.ec.europa.eu/ (EU–UAE agreement).
+Talks launched 28 May 2025; first round June 2025; 4th round Dec 2025; digital
+trade an explicit focus. Reported progress: Semafor (12 Dec 2025); AGBI.
+
+**UAE cross-border data policy** — Clifford Chance, "Doing Business in the Middle
+East: Data Transfers in the UAE and KSA" (2025); Addleshaw Goddard, "A new era
+for cross-border data flows across QFC, DIFC and ADGM" (2026). DIFC Data
+Protection Law No. 5/2020 and ADGM Data Protection Regulations 2021 are
+GDPR-aligned with adequacy mechanisms; mandatory localisation only in narrow
+sectors (health, banking). Backs the UAE-data-openness claim in METHODS 2.5.
+
+## ASEAN benchmark (savings-model calibration)
+
+**ASW realized savings** — USAID, via Vietnam Ministry of Industry & Trade and
+Jakarta Globe ("ASEAN Companies Save $6.5b by Exchanging Trade Documents
+Online," Feb 2024): ~$6.4–6.5bn cumulative 2018–2022, ~$2,300/transaction;
+ASEAN.org ASW page (https://asean.org/.../asean-single-window/).
+
+**ASW operational timeline** — ASEAN Single Window portal,
+https://asw.asean.org/. e-Form D live among 5 states 1 Jan 2018; all 10 by 30
+Dec 2019; ACDD from Dec 2020.
+
+**Intra-ASEAN trade** — ASEANstats, "Exploring Intra-ASEAN Merchandise Trade
+Dynamics" (Vol. VIII, May 2024), https://www.aseanstats.org/. Intra-ASEAN trade
+$769.9bn (2023, −10.1% y/y); CAGR 7.4% (2003–2023). 2018–2019 values (~$620–630bn)
+approximate, to firm.
+
+**ESCAP trade-creation benchmark** — UN ESCAP: full regional digital trade
+facilitation could cut export time up to 44%, cost up to 31%, and boost exports
+by up to ~$257bn/year in Asia-Pacific; cross-border paperless trade reduces
+trade costs 10–30% of transaction costs. (ESCAP digital trade facilitation
+studies / AWP174.) Backs the 1.0–3.4% trade-creation band.
+
+**Single-window cost-reduction range (20–50%)** — ESCAP/UNNExT and the project
+proposal's cited literature; used only as the upper-scope reference, not the
+operative parameter (the model is anchored to ASW's realized 0.19% rate).
+
+## GCC
+
+**Intra-GCC trade** — GCC Statistical Centre (GCC-Stat), https://gccstat.org/,
+2023: intra-GCC merchandise ~$133bn. Also: Gulf customs union; January 2026 GCC
+decision to link members' customs data.

@@ -1,53 +1,66 @@
-# IMEC LPI Analysis
+# IMEC single-window — evidence base
 
-A small R project for a tidyverse data-manipulation assignment.
+Data and analysis for a policy paper on building a shared digital customs system
+(a "single window") along the India–Middle East–Europe Economic Corridor (IMEC).
 Author: Mohammad Eisa AlDarmaki.
 
-## The data
+**Thesis / anchor framing:** replicate the ASEAN Single Window model → integrate
+the GCC / Middle East as the first step (starting from the existing UAE–India
+link) → connect to the EU's mature system.
 
-World Bank **Logistics Performance Index (LPI)** for 15 economies along the
-India–Middle East–Europe Economic Corridor (IMEC) plus an ASEAN benchmark
-group, across every survey round from 2007 to 2022. This is one of the
-datasets from my IMEC single-window policy project, and was not used in class.
+## The finding, in one line
 
-The raw file is `data/raw/lpi_corridor_raw.csv` (long format: one row per
-country, indicator and year).
+Every corridor economy has legally committed to a national single window (WTO TFA
+100%) and mostly built one (UNTFS), but the cross-border layer that connects them
+is weak — because the anchors are among the world's most data-restrictive
+economies with no open-data commitments (DTI) — so real performance lags the
+paper status (LPI). The gap is being closed bilaterally, outward from the UAE,
+through its CEPA network (India, Jordan, Israel, Indonesia… and now the EU).
 
-## What the script does
+## Datasets (see `SOURCES.md` and `METHODS_AND_AUDIT.md`)
 
-`analysis.R` runs top to bottom and uses the core tidyverse functions:
+| Layer | Dataset | File |
+|---|---|---|
+| Legal commitment | WTO TFA | `data/raw/wto_tfa_corridor.csv` |
+| Implementation (built) | UN Trade Facilitation Survey | `data/raw/untfs_corridor_raw.csv` |
+| Cross-border legal layer | CPTA + UAE CEPAs | `data/raw/cross_border_legal_layer.csv`, `uae_cepa_digital_verification.csv` |
+| Why cross-border lags | Digital Trade Integration | `data/raw/dti_region_summary.csv` |
+| Performance | World Bank LPI | `data/raw/lpi_corridor_raw.csv` |
+| Trade base / savings | UN Comtrade + ASEAN | `data/raw/corridor_trade_flows.csv`, `asean_calibration.csv` |
 
-1. `read_csv()` — import the raw data.
-2. `select()` — keep the columns needed.
-3. `filter()` — keep only the customs-efficiency score (the LPI pillar closest
-   to a "single window").
-4. `mutate()` — add a `region` column grouping each economy (India, Gulf,
-   Levant, Europe, ASEAN).
-5. `group_by()` + `summarize()` — average customs score by region and year.
-6. `write_csv()` — export that table to `output/lpi_corridor_summary.csv`.
+## Analysis outputs
 
-It then does a second aggregation: `group_by()` + `summarize()` on the 2022
-round to rank economies by their customs score, exported to
-`output/lpi_latest_ranking_2022.csv`.
+- `output/readiness_scorecard.csv` — triangulated readiness index (UNTFS + LPI).
+- `output/savings_results_by_step.csv` — benefit model results (cost savings +
+  trade creation), by corridor step.
+- `output/lpi_corridor_summary.csv`, `lpi_latest_ranking_2022.csv` — LPI summaries.
 
-## How to run
+## Headline numbers (5-yr 2019–2023 avg base; ranges = Monte Carlo sensitivity)
 
-1. Open `IMEC_LPI_Rproject.Rproj` in RStudio.
-2. Run `install.packages("tidyverse")` once if needed.
-3. Open `analysis.R` and run it. The two CSVs in `output/` are regenerated.
+- Corridor goods trade in scope: ~$415bn (5-yr average; $482bn in 2023 alone).
+- Cost savings from a single window: **median ~$1.4bn/yr (P10–P90 $0.8–2.4bn)**,
+  estimated two independent ways that converge — ASEAN-calibrated (~$1.6bn) and
+  ESCAP/OECD top-down (~$1.3bn).
+- Trade creation: median ~$7.5bn/yr additional trade (ESCAP-benchmarked).
+- Largest prize: the EU connection — the exact leg the UAE–EU CEPA is now
+  negotiating (talks launched 28 May 2025).
 
-## Files
+## Reproduce
 
-```
-analysis.R                         the script
-data/raw/lpi_corridor_raw.csv      raw input
-output/lpi_corridor_summary.csv    avg customs score by region and year
-output/lpi_latest_ranking_2022.csv 2022 customs ranking by economy
-```
+Open `IMEC_LPI_Rproject.Rproj` in RStudio; `install.packages("tidyverse")`.
 
-## Data source
+- `savings_model.R` — reads `corridor_trade_flows.csv` + `asean_calibration.csv`,
+  runs the Monte Carlo, writes the savings outputs.
+- `readiness_index.R` — builds `output/readiness_scorecard.csv` from UNTFS + LPI.
+- `analysis.R` — the original LPI tidyverse exercise (Assignment 1) producing the
+  two LPI summary CSVs.
 
-World Bank Indicators API (LPI, source 51). Pillar codes:
-`LP.LPI.OVRL.XQ` Overall, `LP.LPI.CUST.XQ` Customs,
-`LP.LPI.INFR.XQ` Infrastructure, `LP.LPI.TIME.XQ` Timeliness (1 = low, 5 = high).
-Browse: https://data360.worldbank.org/
+## Provenance and honesty
+
+`METHODS_AND_AUDIT.md` records every dataset's confidence tier (direct pull /
+derived / estimated / inferred), all transformations, and the open limitations.
+`SOURCES.md` is the full citation list. Key disclosed caveats: UNTFS percentages
+are reconstructed (validated, not read); EU WTO TFA values are inferred from the
+entry-into-force rule; DTI figures are policy counts, not a normalized index; and
+the savings rate is anchored to ASW's partial (e-CoO) scope, scaled 1–4× for a
+fuller single window.

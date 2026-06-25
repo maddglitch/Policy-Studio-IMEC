@@ -1,0 +1,5 @@
+flow,corridor_step,energy_share_est,y2019,y2020,y2021,y2022,y2023,avg_2019_2023,source
+UAE-India,Step 1 (anchor link),0.33,59.8,41.9,68.6,85.2,70.6,65.2,Comtrade 2019-2023 goods (India 699<->UAE 784; M+X)
+India-EU,Step 3 (connect EU),0.08,101.3,72.1,100.7,120.7,121.9,103.3,Comtrade 2019-2023 (EU 97<->India 699; M+X)
+Gulf-EU,Step 3 (connect EU),0.35,140.3,96.1,115.5,162.1,156.2,134.0,Comtrade 2019-2023 (EU 97<->Saudi+UAE+Qatar; excl KWT/OMN/BHR ~6-15bn)
+Intra-Gulf,Step 2 (Gulf integration),0.20,100.0,90.0,110.0,128.0,133.0,112.2,GCC-Stat intra-GCC merchandise (2023=133; 2019/21/22 approx)

@@ -1,0 +1,22 @@
+iso,region,cpta_eligible,cpta_status,uae_cepa,uae_cepa_in_force,uae_cepa_digital_chapter,xborder_digital_instrument,source
+ARE,Gulf,no,not_ESCAP_member,hub,hub,hub,hub,UAE MoET (moet.gov.ae/en/cepa)
+IND,India,yes,eligible_not_party,2022-02,2022-05,yes,UAE_CEPA,ESCAP CPTA; UAE MoET; Digital Policy Alert
+SAU,Gulf,no,not_ESCAP_member,no,no,no,none,ESCAP CPTA membership (ESCWA not ESCAP)
+QAT,Gulf,no,not_ESCAP_member,no,no,no,none,ESCAP CPTA membership (ESCWA not ESCAP)
+KWT,Gulf,no,not_ESCAP_member,no,no,no,none,ESCAP CPTA membership (ESCWA not ESCAP)
+BHR,Gulf,no,not_ESCAP_member,no,no,no,none,ESCAP CPTA membership (ESCWA not ESCAP)
+OMN,Gulf,no,not_ESCAP_member,no,no,no,none,ESCAP CPTA membership (ESCWA not ESCAP)
+JOR,Levant,no,not_ESCAP_member,2024-10,2025-05,yes,UAE_CEPA,UAE MoET; PwC ME (Ch 4 Art 4.5 + AEO)
+ISR,Levant,no,not_ESCAP_member,2022,2023,yes,UAE_CEPA,UAE MoET; PwC ME (Ch 9 Arts 9.6/9.7/9.8)
+SGP,ASEAN,yes,eligible_not_party,no,no,no,none,ESCAP CPTA party list (not a party)
+MYS,ASEAN,yes,eligible_not_party,2025,pending,yes,UAE_CEPA,UAE MoET; ATB Legal
+THA,ASEAN,yes,party_2025,no,no,no,CPTA,ESCAP CPTA (acceded Oct 2025)
+VNM,ASEAN,yes,eligible_not_party,2025,pending,yes,UAE_CEPA,UAE MoET; VCCI/Vietnam Briefing
+IDN,ASEAN,yes,eligible_not_party,2022-07,2023-09,yes,UAE_CEPA,ESCAP CBPT Database (e-CoO + AEO)
+PHL,ASEAN,yes,party_2019,no,no,no,CPTA,ESCAP CPTA (acceded Dec 2019)
+DEU,Europe,no,not_ESCAP_member,UAE-EU_negotiating,negotiating_2025,expected,UAE-EU_CEPA_negotiating,EU Commission (talks launched 28 May 2025)
+FRA,Europe,no,not_ESCAP_member,UAE-EU_negotiating,negotiating_2025,expected,UAE-EU_CEPA_negotiating,EU Commission (talks launched 28 May 2025)
+NLD,Europe,no,not_ESCAP_member,UAE-EU_negotiating,negotiating_2025,expected,UAE-EU_CEPA_negotiating,EU Commission (talks launched 28 May 2025)
+ITA,Europe,no,not_ESCAP_member,UAE-EU_negotiating,negotiating_2025,expected,UAE-EU_CEPA_negotiating,EU Commission (talks launched 28 May 2025)
+ESP,Europe,no,not_ESCAP_member,UAE-EU_negotiating,negotiating_2025,expected,UAE-EU_CEPA_negotiating,EU Commission (talks launched 28 May 2025)
+GRC,Europe,no,not_ESCAP_member,UAE-EU_negotiating,negotiating_2025,expected,UAE-EU_CEPA_negotiating,EU Commission (talks launched 28 May 2025)

@@ -1,0 +1,18 @@
+parameter,value,unit,source
+asw_cumulative_savings,6.4,USD bn,USAID via MOIT/Jakarta Globe (2018-2022 cumulative)
+asw_period_years,5,years,2018-2022
+asw_annual_savings,1.28,USD bn/yr,derived: 6.4 / 5
+asw_saving_per_transaction,2300,USD,USAID (2018-2022)
+intra_asean_trade_2023,769.9,USD bn,ASEANstats (declined 10.1% from 2022)
+intra_asean_trade_2022,856.4,USD bn,derived from 2023 and reported -10.1%
+intra_asean_trade_2021,711.9,USD bn,derived from 2022 and reported +20.3%
+intra_asean_trade_2020,567.3,USD bn,derived from 2021 and reported +25.5% (COVID dip)
+intra_asean_trade_2019,630.0,USD bn,ASEANstats approx (to firm up)
+intra_asean_trade_2018,620.0,USD bn,ASEANstats approx; ASW e-Form D live Jan 2018 (5 states)
+intra_asean_avg_2018_2022,677.0,USD bn,mean of 2018-2022
+asw_realized_savings_rate,0.189,% of trade/yr,derived: 1.28 / 677 (PARTIAL single window: e-Form D / e-CoO)
+asw_scope,partial,-,e-Form D (CoO) live 2018; all 10 by Dec 2019; ACDD from 2020
+escap_full_dtf_export_boost,257,USD bn/yr,ESCAP: full digital trade facilitation could boost Asia-Pacific exports up to this
+escap_export_boost_pct,3.4,% of exports,~257bn / ~7.5tn Asia-Pacific exports (upper bound)
+escap_cost_reduction,10-30,% of transaction costs,ESCAP full cross-border paperless trade
+intra_asean_cagr_2003_2023,7.4,%/yr,ASEANstats

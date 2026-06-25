@@ -1,0 +1,6 @@
+benefit,corridor_step,median_usd_bn,p10_usd_bn,p90_usd_bn
+cost_savings,Step 1 (anchor link: UAE-India),0.23,0.12,0.34
+cost_savings,Step 2 (Gulf integration: intra-Gulf),0.45,0.23,0.67
+cost_savings,Step 3 (connect EU: Gulf-EU + India-EU),0.92,0.48,1.37
+cost_savings_combined,Total corridor,1.44,0.76,2.35
+trade_creation,Total corridor (additional trade/yr),7.47,4.23,10.75
