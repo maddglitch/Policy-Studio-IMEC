@@ -18,6 +18,26 @@ percentages were reconstructed from the dashboard's raw scores — see
 World Bank, *Logistics Performance Index*, Indicators API source 51;
 https://lpi.worldbank.org/ and https://data360.worldbank.org/. Rounds 2007–2023
 (latest data point 2022). Backs: `lpi_corridor_raw.csv`, the "performing" layer.
+Coverage extended to 21 economies (NLD, ITA, ESP, IDN, VNM, PHL added) and
+India's stitched rows re-verified against the API, July 2026.
+
+**EU Single Window Environment for Customs (EU SWE-C)**
+Regulation (EU) 2022/2399 of 23 Nov 2022, EUR-Lex (consolidated version
+CELEX 02022R2399-20241017); DG TAXUD, "The EU Single Window Environment for
+Customs," https://taxation-customs.ec.europa.eu/customs/customs-controls/eu-single-window-environment-customs_en;
+EUR-Lex summary: https://eur-lex.europa.eu/EN/legal-content/summary/european-union-single-window-environment-for-customs.html.
+In force 12 Dec 2022; G2G (EU CSW-CERTEX) mandatory from 2025, domain expansion
+2026–2028; B2G from 13 Dec 2031. Backs: the "EU mature system" step and
+`data/raw/eu_swec_NOTES.md`. Accessed July 2026.
+
+**OECD Trade Facilitation Indicators (TFI)**
+OECD (March 2025), *OECD Trade Facilitation Indicators: Monitoring Policies up
+to 2025*, https://www.oecd.org/en/publications/oecd-trade-facilitation-indicators_fd6f27dc-en.html;
+data pulled from the Policy Simulator (https://sim.oecd.org/default.ashx?ds=TFI)
+data endpoints, accessed 1 July 2026 — 21 corridor economies × 11 dimensions,
+0–2 scale. Backs: `oecd_tfi_corridor.csv`, the objective layer, and the
+automation-vs-external-cooperation gap finding. Vintage 2025 (to verify —
+see `data/raw/oecd_tfi_NOTES.md`).
 
 **WTO Trade Facilitation Agreement Database (TFAD)**
 World Trade Organization, *TFA Database*, https://tfadatabase.org/ (Matrix of
@@ -67,6 +87,17 @@ https://www.moet.gov.ae/en/cepa. Per-agreement digital-chapter verification
 - Jordan — PwC Middle East (Ch 4 Art 4.5 paperless + AEO mutual admin assistance).
 - Türkiye — ATB Legal.
 
+**UAE–India Virtual Trade Corridor (operating)** — launched 10 Sept 2024 (ANI;
+Times of Oman); operationalized via the MAITRI interface, welcomed in India–UAE
+joint statements May 2026 (DD News, "India advances IMEEC trade corridor with
+key UAE discussions"). Bilateral trade $101.25bn FY25-26, $200bn target by 2032.
+Backs: the "two live links" claim and the Step 1 reframing in Stream A. Accessed
+July 2026.
+
+**UAE–Mercosur CEPA (negotiating, advanced)** — ANBA, "UAE and Mercosur advance
+trade agreement"; AGBI (Jan 2026); reaffirmed at the Mercosur Summit 30 June
+2026. Accessed July 2026.
+
 **UAE–EU CEPA (negotiating)** — European Commission, "EU and UAE agree to launch
 free trade talks" (10 Apr 2025), https://ec.europa.eu/commission/presscorner/
 detail/en/read_25_1043 and https://policy.trade.ec.europa.eu/ (EU–UAE agreement).
@@ -105,6 +136,36 @@ studies / AWP174.) Backs the 1.0–3.4% trade-creation band.
 **Single-window cost-reduction range (20–50%)** — ESCAP/UNNExT and the project
 proposal's cited literature; used only as the upper-scope reference, not the
 operative parameter (the model is anchored to ASW's realized 0.19% rate).
+
+## Trade creation and spillover literature (added July 2026)
+
+**WTO (2015). World Trade Report 2015: Speeding up trade — benefits and
+challenges of implementing the WTO Trade Facilitation Agreement.**
+https://www.wto.org/english/res_e/publications_e/wtr15_e.htm. Full TFA
+implementation estimated to raise global merchandise exports by **$750bn–$1tn
+per year** (gravity-model estimates higher), with developing economies
+capturing over half the gains, LDC exports up 13–36%, plus diversification and
+SME-participation effects. Backs: the trade-creation direction in Stream A §4,
+the Medium post spillover section, and Brief B.
+
+**Djankov, S., Freund, C., & Pham, C.S. (2010). Trading on Time.** Review of
+Economics and Statistics 92(1), 166–173.
+https://direct.mit.edu/rest/article/92/1/166/57797/Trading-on-Time. Each
+additional day of pre-shipment delay reduces bilateral trade by **more than
+1%** (≈ 70 km of added distance); worst for time-sensitive goods.
+
+**Hummels, D.L., & Schaur, G. (2013). Time as a Trade Barrier.** American
+Economic Review 103(7). NBER WP 17758:
+https://www.nber.org/system/files/working_papers/w17758/w17758.pdf. Each day
+in transit equivalent to a **0.6–2.1% ad valorem tariff**.
+
+**Corridor spillovers.** "Wider economic benefits of transport corridors:
+evidence from international development organizations" (ScienceDirect,
+2022) — spatial spillovers from corridor investment to surrounding areas,
+evidence from ~40 ADB/JICA/World Bank projects; CAREC corridor study
+(Springer, 2025) — trade-facilitation improvements along corridors raise
+trade flows. Backs: the spillover framing (mechanism-level, not
+corridor-specific estimates).
 
 ## GCC
 

@@ -21,6 +21,7 @@ Anchor framing (fixed): replicate the **ASEAN Single Window** model →
 | Digital Trade Integration | `data/raw/dti_region_summary.csv` | DTI database via published paper | Evidence, policy counts |
 | Trade volumes | `data/raw/corridor_trade_flows.csv` | UN Comtrade API (2023) | Direct (energy shares grounded) |
 | ASEAN calibration | `data/raw/asean_calibration.csv` | ASEANstats, USAID/MOIT, ESCAP | Direct |
+| OECD TFI (objective layer) | `data/raw/oecd_tfi_corridor.csv` | OECD Policy Simulator endpoints | Direct (vintage year to verify) |
 
 Tiers: **Direct** (read from source), **Derived** (computed from direct data —
 valid only if the method is), **Estimated** (judgement), **Inferred** (from one
@@ -31,9 +32,11 @@ source / a rule, not independently pulled).
 ## 2. Per-dataset notes
 
 ### 2.1 LPI (Direct)
-World Bank API, 15 economies, 4 sub-indices, 2007–2022. India was re-fetched
-separately after a truncated bulk pull and stitched in — re-verify. Used as the
-performance check (perceived customs efficiency).
+World Bank API, **21 economies** (extended July 2026: NLD, ITA, ESP, IDN, VNM,
+PHL added from the same API/source), 4 sub-indices, 2007–2022. India's stitched
+rows were **re-verified against the API July 2026 — all 7 rounds match**. Used as
+the performance check (perceived customs efficiency). The readiness scorecard now
+has LPI coverage for all 20 non-missing economies (Spearman recomputed — see §4.4).
 
 ### 2.2 UNTFS (Derived — important)
 Read from the dashboard's in-page data. **The implementation percentages are
@@ -58,6 +61,17 @@ chapter)**. **NEW: the UAE–EU CEPA — talks launched 28 May 2025, first round
 June 2025, 4th round Dec 2025, with digital trade an explicit focus.** This puts
 the corridor's one empty leg (EU–Gulf) into active negotiation, via a UAE CEPA,
 exactly as the thesis predicts.
+**NEW (July 2026): UAE–India Virtual Trade Corridor is OPERATING** — launched
+Sept 2024, operationalized May 2026 via India's MAITRI interface (Master
+Application for International Trade and Regulatory Interface; integrates Indian
+regulatory portals to interface with UAE systems). Key reading: India connected
+through a scoped G2G channel with data remaining in national systems — confirms
+(not contradicts) the DTI root-cause finding; it is the form connection takes
+under data restrictiveness. Corrects the earlier "India exchange not yet
+operating" line; the CEPA network now has TWO live links (Indonesia e-CoO+AEO;
+India VTC/MAITRI — customs/port interfacing, not yet transferable documents).
+Also: UAE–Mercosur CEPA at advanced stage (round Nov 2025; reaffirmed at
+Mercosur Summit 30 Jun 2026).
 
 ### 2.5 DTI (Evidence — policy counts, not an index)
 Figures are **policy counts (2023)** from the published paper (Ferracane et al.,
@@ -70,7 +84,31 @@ BCRs; mandatory localisation only in narrow sectors (health, banking). This is
 *why* the UAE, uniquely in MENA, can carry cross-border data-flow commitments in
 its CEPAs. (Full refs in `SOURCES.md`.)
 
-### 2.6 Trade volumes (Direct — multi-year, energy shares grounded)
+### 2.6 EU Single Window Environment for Customs (Documentary — NEW July 2026)
+The EU-side evidence for the "connect to the EU's mature system" step.
+**Regulation (EU) 2022/2399** establishes the EU Single Window Environment for
+Customs: in force since 12 Dec 2022; the G2G layer (EU CSW-CERTEX, automatic
+exchange between customs and partner authorities) mandatory from 2025 across
+member states, expanding by regulatory domain through 2026–2028; the B2G layer
+(single submission point for economic operators) applies from **13 Dec 2031**.
+Two implications used in the paper: (a) the EU end of the corridor has a
+legislated, funded, dated single-window trajectory — the "mature system" claim
+is documentary, not inferred; (b) even the EU's own *internal* cross-agency
+layer completes only in 2031, which supports the thesis that the cross-border
+layer is the hard part everywhere. See `data/raw/eu_swec_NOTES.md`.
+
+### 2.7 OECD TFI (Direct — objective layer, NEW July 2026)
+Pulled 1 Jul 2026 from the OECD Policy Simulator's data endpoints
+(`sim.oecd.org/Graph.ashx`), 21 corridor economies × 11 dimensions (0–2 scale)
+→ `oecd_tfi_corridor.csv`. OECD-assessed, not self-reported — closes the "no
+objective measure" limitation. **Key result:** the automation-minus-external-
+border-agency-cooperation gap is largest exactly where the thesis predicts —
+Gulf mean +0.58, India +0.51, vs ASEAN +0.13 and EU −0.01; the **UAE has the
+corridor's largest gap (+0.95)**. Caveat: vintage labeled 2025 (per the March
+2025 OECD TFI report); the simulator doesn't display the year — verify before
+publication. See `data/raw/oecd_tfi_NOTES.md`.
+
+### 2.8 Trade volumes (Direct — multi-year, energy shares grounded)
 UN Comtrade API, **2019–2023 goods panel** (`corridor_trade_multiyear.csv`),
 all-modes aggregate; EU as reporter (97). 5-year averages used as the model base:
 UAE–India $65.2bn (33% energy), India–EU $103.3bn (8% energy — grounded: EU HS27
@@ -118,13 +156,22 @@ ASW's realised ~$1.28bn (consistent by construction).
 2. **Trade creation** uses ESCAP's upper-bound elasticity; attribution to a single
    window specifically is not identified — present as illustrative.
 3. **Self-reporting saturation:** WTO TFA and UNTFS are government self-reports and
-   both saturate (TFA 100%; UNTFS single window mostly "full"); LPI is the one
-   independent counterweight but is itself perception-based. No hard objective
-   measure (actual e-document volumes / clearance times) is in the set.
+   both saturate (TFA 100%; UNTFS single window mostly "full"); LPI is perception-
+   based. **Partially closed July 2026:** OECD TFI (§2.7) adds an OECD-assessed
+   objective policy measure. Still absent: hard operational data (actual
+   e-document volumes / clearance times).
 4. **Triangulation is indicative, not proof.** The UNTFS-vs-LPI divergence
-   (rank corr −0.06) rests on n=14, a year mismatch (LPI 2022 vs UNTFS 2025) and
-   two different constructs (self-reported implementation vs perceived
-   performance). State it as suggestive.
+   (rank corr **~0.00, n=20** — recomputed July 2026 after the LPI coverage
+   extension; previously −0.06 on n=14) still rests on a year mismatch (LPI 2022
+   vs UNTFS 2025) and two different constructs (self-reported implementation vs
+   perceived performance). State it as suggestive; at n=20 the CI is ~±0.4.
+   **Robustness (July 2026, in Stream A draft):** (a) year-matched rerun with
+   UNTFS ≤2023 wave vs LPI 2022 → **0.15 (n=19)**, still null; (b) OECD TFI
+   external-cooperation (j) vs LPI customs → **0.62 (n=21)** — the assessed
+   measure tracks performance, the self-reports don't; the contrast is the
+   finding. (c) Scope-conditional savings (Method 1, fixed scope): 1×=$0.64bn,
+   2×=$1.29bn, 3×=$1.93bn, 4×=$2.57bn — reported as a table in the draft so no
+   conclusion depends on the scope prior.
 5. **Scope:** trade is **goods only** (services excluded); the Gulf–EU base is the
    three largest GCC states (excludes Kuwait/Oman/Bahrain ~$6–15bn); intra-Gulf
    energy share (~20%) and 2018–19/intra-Gulf early-year values remain estimates.
@@ -133,11 +180,19 @@ ASW's realised ~$1.28bn (consistent by construction).
    bloc under one agreement whereas the corridor spans three regimes — the analogy
    has limits. Keep "signed a chapter" distinct from "operating a system."
 7. Still to obtain: **UAE's own UNTFS** (stale after 2017) and **DTI index score**
-   (UAE not in the paper sample); re-verify the **India LPI** stitched rows and the
-   **EU TFA** inference.
+   (UAE not in the paper sample); re-verify the **EU TFA** inference.
+8. **TFI vintage verification:** the simulator pull (§2.7) is labeled 2025 per
+   the March 2025 OECD report, but the simulator doesn't display the year —
+   spot-check against Compare-your-country before publication. Optional next
+   objective layer: World Bank Container Port Performance Index for corridor
+   ports (Jebel Ali, Mundra, Piraeus, Haifa) as a hard time-based measure.
 
 CLOSED since first audits: Jordan CEPA text confirmed; energy shares grounded in
 HS27; intra-Gulf value pulled (GCC-Stat); UAE–EU CEPA added; UAE data-policy stance
 sourced; **trade base extended to a 5-year (2019–2023) average**; **savings
 de-single-anchored with a second independent (ESCAP/OECD) method**; **readiness
-double-count fixed** (now mean of paperless + cross-border + single-window only).
+double-count fixed** (now mean of paperless + cross-border + single-window only);
+**LPI coverage extended to 21 economies + India stitched rows verified (July
+2026)**; **EU SWE-C documentary layer added (§2.6, July 2026)**; **OECD TFI
+objective layer pulled — corridor anchors show the largest automation-vs-
+external-cooperation gaps, UAE largest at +0.95 (§2.7, July 2026)**.

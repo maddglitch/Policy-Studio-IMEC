@@ -49,6 +49,24 @@ through its CEPA network (India, Jordan, Israel, Indonesia… and now the EU).
 
 Open `IMEC_LPI_Rproject.Rproj` in RStudio; `install.packages("tidyverse")`.
 
+## Figures for the Medium post (Stream B)
+
+`make_figures.py` regenerates every figure in the published post ("The Middle
+East Built the World's Newest Trade Corridor on Paper. Literally.") from the
+CSVs in this repository — no external downloads needed.
+
+```
+pip install matplotlib
+python make_figures.py        # writes PNGs to ./figures/
+```
+
+Figure-to-data map: Fig 1 ← `data/raw/untfs_corridor_raw.csv`; Fig 2 ←
+`data/raw/oecd_tfi_corridor.csv`; Fig 3 ← `output/readiness_scorecard.csv` +
+`data/raw/lpi_corridor_raw.csv` + the TFI file; Fig 4 ←
+`output/savings_results_by_step.csv` (built by `savings_model.R`); Fig 5 is a
+schematic of the build plan. Methods and caveats: `METHODS_AND_AUDIT.md`.
+
+
 - `savings_model.R` — reads `corridor_trade_flows.csv` + `asean_calibration.csv`,
   runs the Monte Carlo, writes the savings outputs.
 - `readiness_index.R` — builds `output/readiness_scorecard.csv` from UNTFS + LPI.
