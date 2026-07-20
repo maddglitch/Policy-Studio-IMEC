@@ -1,5 +1,27 @@
 # IMEC single-window — evidence base
 
+## Start here (NYU Wagner Policy & Data Studio — final project)
+
+This repository contains all data, code, and documentation behind the Medium
+post **"The Middle East Built the World's Newest Trade Corridor on Paper.
+Literally."** Everything in the post can be reproduced from here:
+
+1. **Data** — `data/raw/` (every dataset documented in `SOURCES.md`, with
+   provenance and confidence tiers in `METHODS_AND_AUDIT.md`).
+2. **Analysis** — `readiness_index.R` (readiness scorecard + cross-checks) and
+   `savings_model.R` (the savings estimate; sensitivity ranges), both written
+   to `output/`. Open `IMEC_LPI_Rproject.Rproj` in RStudio and
+   `install.packages("tidyverse")` to rerun.
+3. **Figures** — `make_figures.py` (Figures 1–5) and `make_map.py` (Figure 6);
+   `pip install matplotlib "geopandas==0.13.2"` and run each from the repo
+   root. PNGs and editable SVGs are written to `figures/`.
+4. **Every caveat** the post summarizes (reconstructed survey scores, stale
+   UAE data, sensitivity-not-confidence ranges, exploratory map) is recorded
+   in `METHODS_AND_AUDIT.md` §4.
+
+The sections below describe the wider evidence base this project is drawn
+from.
+
 Data and analysis for a policy paper on building a shared digital customs system
 (a "single window") along the India–Middle East–Europe Economic Corridor (IMEC).
 Author: Mohammad Eisa AlDarmaki.

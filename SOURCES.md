@@ -137,6 +137,14 @@ studies / AWP174.) Backs the 1.0–3.4% trade-creation band.
 proposal's cited literature; used only as the upper-scope reference, not the
 operative parameter (the model is anchored to ASW's realized 0.19% rate).
 
+**World Bank merchandise exports (Figure 6 map)**
+World Bank, merchandise exports (current US$), indicator TX.VAL.MRCH.CD.WT,
+api.worldbank.org, pulled July 2026: ASEAN-10 plus China, India, Bangladesh,
+Australia, Sri Lanka, 2013–2023. Backs: `data/raw/merch_exports_asw_window.csv`
+and the exploratory before/after-ASW growth map (`make_map.py`). Presented as
+exploratory (current dollars; COVID inside the post window; totals, not
+intra-bloc trade).
+
 ## Trade creation and spillover literature (added July 2026)
 
 **WTO (2015). World Trade Report 2015: Speeding up trade — benefits and
