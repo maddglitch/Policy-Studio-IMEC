@@ -162,14 +162,16 @@ ASW's realised ~$1.28bn (consistent by construction).
    e-document volumes / clearance times).
 4. **Triangulation is indicative, not proof.** The UNTFS-vs-LPI divergence
    (rank corr **~0.00, n=20** — recomputed July 2026 after the LPI coverage
-   extension; previously −0.06 on n=14) still rests on a year mismatch (LPI 2022
+   extension; previously −0.06 on n=14) still rests on a year mismatch (LPI 2023 round (survey fielded late 2022)
    vs UNTFS 2025) and two different constructs (self-reported implementation vs
    perceived performance). State it as suggestive; at n=20 the CI is ~±0.4.
    **Robustness (July 2026, in Stream A draft):** (a) year-matched rerun with
    UNTFS ≤2023 wave vs LPI 2022 → **0.15 (n=19)**, still null; (b) OECD TFI
    external-cooperation (j) vs LPI customs → **0.62 (n=21)** — the assessed
-   measure tracks performance, the self-reports don't; the contrast is the
-   finding. (c) Scope-conditional savings (Method 1, fixed scope): 1×=$0.64bn,
+   co-operation measure tracks rated performance, the implementation reports
+   don't; implementation and performance are different constructs, and the
+   contrast is the finding (not evidence of misreporting; the UN survey is
+   expert-submitted and UN-validated). (c) Scope-conditional savings (Method 1, fixed scope): 1×=$0.64bn,
    2×=$1.29bn, 3×=$1.93bn, 4×=$2.57bn — reported as a table in the draft so no
    conclusion depends on the scope prior.
 5. **Scope:** trade is **goods only** (services excluded); the Gulf–EU base is the

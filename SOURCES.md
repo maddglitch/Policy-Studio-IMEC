@@ -113,7 +113,7 @@ sectors (health, banking). Backs the UAE-data-openness claim in METHODS 2.5.
 
 ## ASEAN benchmark (savings-model calibration)
 
-**ASW realized savings** — USAID, via Vietnam Ministry of Industry & Trade and
+**ASW reported savings** (see reconciliation note below) — USAID, via Vietnam Ministry of Industry & Trade and
 Jakarta Globe ("ASEAN Companies Save $6.5b by Exchanging Trade Documents
 Online," Feb 2024): ~$6.4–6.5bn cumulative 2018–2022, ~$2,300/transaction;
 ASEAN.org ASW page (https://asean.org/.../asean-single-window/).
