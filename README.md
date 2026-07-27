@@ -12,7 +12,7 @@ from here.
 
 | Piece | Files |
 |---|---|
-| Raw data | `data/raw/*.csv` — each dataset documented in `SOURCES.md`; per-dataset caveats in `data/raw/*_NOTES.md` and `METHODS.md` |
+| Raw data | `data/raw/*.csv` — each dataset documented in `SOURCES.md`; per-dataset caveats in `data/raw/*_NOTES.md` and `METHODS_AND_AUDIT.md` |
 | Analysis (R) | `readiness_index.R` (readiness scorecard + cross-checks), `savings_model.R` (savings scenarios with sensitivity ranges), `analysis.R` (earlier LPI exercise) |
 | Data pulls (Python) | `pull_worldbank_exports.py` — reproducible World Bank pull for the map dataset |
 | Figures (Python) | `make_figures.py` (Figures 1–5), `make_map.py` (static six-panel map), `make_map_gif.py` (animated GIF version), `make_flourish_data.py` (data for the interactive map) |
@@ -66,7 +66,7 @@ shapes, so the maps render offline.)
 
 ## Honesty file
 
-`METHODS.md` records how each dataset was obtained, what was reconstructed
+`METHODS_AND_AUDIT.md` records how each dataset was obtained, what was reconstructed
 versus read directly, and every known limitation the post summarizes —
 including why all savings figures are presented as scenarios rather than
 predictions (published ASEAN benchmark figures diverge; see the

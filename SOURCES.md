@@ -1,7 +1,7 @@
 # Sources and citations
 
 Every dataset and key figure used in this project, with its source and what it
-backs. Access dates June 2026 unless noted. Data pulls are 2023 reference year
+backs. Access dates June-July 2026 unless noted. Data pulls are 2023 reference year
 unless noted.
 
 ## Primary datasets
@@ -36,8 +36,8 @@ to 2025*, https://www.oecd.org/en/publications/oecd-trade-facilitation-indicator
 data pulled from the Policy Simulator (https://sim.oecd.org/default.ashx?ds=TFI)
 data endpoints, accessed 1 July 2026 — 21 corridor economies × 11 dimensions,
 0–2 scale. Backs: `oecd_tfi_corridor.csv`, the objective layer, and the
-automation-vs-external-cooperation gap finding. Vintage 2025 (to verify —
-see `data/raw/oecd_tfi_NOTES.md`).
+automation-vs-external-cooperation gap finding. Vintage: 2025 publication (March 2025
+update), reflecting policies through 2024 — see `data/raw/oecd_tfi_NOTES.md`.
 
 **WTO Trade Facilitation Agreement Database (TFAD)**
 World Trade Organization, *TFA Database*, https://tfadatabase.org/ (Matrix of
@@ -91,7 +91,7 @@ https://www.moet.gov.ae/en/cepa. Per-agreement digital-chapter verification
 Times of Oman); operationalized via the MAITRI interface, welcomed in India–UAE
 joint statements May 2026 (DD News, "India advances IMEEC trade corridor with
 key UAE discussions"). Bilateral trade $101.25bn FY25-26, $200bn target by 2032.
-Backs: the "two live links" claim and the Step 1 reframing in Stream A. Accessed
+Backs: the operating-channel claim and Step 1 of the working paper's roadmap. Accessed
 July 2026.
 
 **UAE–Mercosur CEPA (negotiating, advanced)** — ANBA, "UAE and Mercosur advance
@@ -153,7 +153,7 @@ https://www.wto.org/english/res_e/publications_e/wtr15_e.htm. Full TFA
 implementation estimated to raise global merchandise exports by **$750bn–$1tn
 per year** (gravity-model estimates higher), with developing economies
 capturing over half the gains, LDC exports up 13–36%, plus diversification and
-SME-participation effects. Backs: the trade-creation direction in Stream A §4,
+SME-participation effects. Backs: the trade-creation direction in the working paper §4,
 the Medium post spillover section, and Brief B.
 
 **Djankov, S., Freund, C., & Pham, C.S. (2010). Trading on Time.** Review of

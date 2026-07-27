@@ -1,4 +1,5 @@
-# IMEC single-window benefit model (Monte Carlo, two independent methods)
+# IMEC single-window benefit model (Monte Carlo, two methods with different anchors;
+# their convergence is a consistency check, not independent validation)
 # Author: Mohammad Eisa AlDarmaki
 #
 # Estimates two benefits of a corridor single window, as RANGES:
@@ -9,7 +10,8 @@
 # volatility (COVID 2020 trough, 2022 energy-price spike, soft 2023). See
 # data/raw/corridor_trade_multiyear.csv.
 #
-# COST SAVINGS is estimated TWO independent ways so it is not single-anchored:
+# COST SAVINGS is estimated two ways with different anchors, so it is not
+# single-anchored (convergence = consistency check, not independent validation):
 #   Method 1 (ASEAN-calibrated): the ASEAN Single Window saved ~$6.4bn over
 #     2018-2022 (~$1.28bn/yr) on intra-ASEAN trade averaging ~$677bn -> a
 #     realised rate of ~0.19% of trade value/yr. ASW is a PARTIAL single window

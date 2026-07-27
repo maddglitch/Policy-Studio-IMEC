@@ -2,7 +2,7 @@
 
 This document records every dataset used, how it was obtained, what was read
 directly versus derived or assumed, and the known limitations. It is the
-provenance backbone for Stream A. Last updated June 2026.
+provenance backbone for the project's working paper. Last updated July 2026.
 **Full citations (publishers, URLs, access dates) are in `SOURCES.md`.**
 
 Anchor framing (fixed): replicate the **ASEAN Single Window** model →
@@ -21,7 +21,7 @@ Anchor framing (fixed): replicate the **ASEAN Single Window** model →
 | Digital Trade Integration | `data/raw/dti_region_summary.csv` | DTI database via published paper | Evidence, policy counts |
 | Trade volumes | `data/raw/corridor_trade_flows.csv` | UN Comtrade API (2023) | Direct (energy shares grounded) |
 | ASEAN calibration | `data/raw/asean_calibration.csv` | ASEANstats, USAID/MOIT, ESCAP | Direct |
-| OECD TFI (objective layer) | `data/raw/oecd_tfi_corridor.csv` | OECD Policy Simulator endpoints | Direct (vintage year to verify) |
+| OECD TFI (objective layer) | `data/raw/oecd_tfi_corridor.csv` | OECD Policy Simulator endpoints | Direct (2025 publication; policies through 2024) |
 
 Tiers: **Direct** (read from source), **Derived** (computed from direct data —
 valid only if the method is), **Estimated** (judgement), **Inferred** (from one
@@ -104,9 +104,8 @@ Pulled 1 Jul 2026 from the OECD Policy Simulator's data endpoints
 objective measure" limitation. **Key result:** the automation-minus-external-
 border-agency-cooperation gap is largest exactly where the thesis predicts —
 Gulf mean +0.58, India +0.51, vs ASEAN +0.13 and EU −0.01; the **UAE has the
-corridor's largest gap (+0.95)**. Caveat: vintage labeled 2025 (per the March
-2025 OECD TFI report); the simulator doesn't display the year — verify before
-publication. See `data/raw/oecd_tfi_NOTES.md`.
+corridor's largest gap (+0.95)**. Vintage: 2025 publication (March 2025 OECD TFI update),
+reflecting policies through 2024. See `data/raw/oecd_tfi_NOTES.md`.
 
 ### 2.8 Trade volumes (Direct — multi-year, energy shares grounded)
 UN Comtrade API, **2019–2023 goods panel** (`corridor_trade_multiyear.csv`),
@@ -126,7 +125,7 @@ Two benefits, both ranges from a 50,000-draw Monte Carlo. **Trade base is a
 to smooth the COVID 2020 trough, the 2022 energy spike and soft 2023. 5-yr-avg
 base ≈ **$415bn** (vs $482bn in 2023 alone).
 
-**Cost savings is estimated two independent ways, so it is not single-anchored:**
+**Cost savings is estimated two ways with different anchors, so it is not single-anchored** (their convergence is a consistency check, not independent validation — they share the same trade base and overlapping trade-cost literature):
 - *Method 1 (ASEAN-calibrated):* ASW saved ~$6.4bn over 2018–2022 (~$1.28bn/yr)
   on intra-ASEAN trade averaging ~$677bn → realised rate **~0.19% of trade/yr**.
   ASW is a *partial* single window (e-Form D), so 0.19% is scaled by a `scope`
@@ -165,7 +164,7 @@ ASW's realised ~$1.28bn (consistent by construction).
    extension; previously −0.06 on n=14) still rests on a year mismatch (LPI 2023 round (survey fielded late 2022)
    vs UNTFS 2025) and two different constructs (self-reported implementation vs
    perceived performance). State it as suggestive; at n=20 the CI is ~±0.4.
-   **Robustness (July 2026, in Stream A draft):** (a) year-matched rerun with
+   **Robustness (July 2026, in the working paper draft):** (a) year-matched rerun with
    UNTFS ≤2023 wave vs LPI 2022 → **0.15 (n=19)**, still null; (b) OECD TFI
    external-cooperation (j) vs LPI customs → **0.62 (n=21)** — the assessed
    co-operation measure tracks rated performance, the implementation reports
@@ -183,11 +182,8 @@ ASW's realised ~$1.28bn (consistent by construction).
    has limits. Keep "signed a chapter" distinct from "operating a system."
 7. Still to obtain: **UAE's own UNTFS** (stale after 2017) and **DTI index score**
    (UAE not in the paper sample); re-verify the **EU TFA** inference.
-8. **TFI vintage verification:** the simulator pull (§2.7) is labeled 2025 per
-   the March 2025 OECD report, but the simulator doesn't display the year —
-   spot-check against Compare-your-country before publication. Optional next
-   objective layer: World Bank Container Port Performance Index for corridor
-   ports (Jebel Ali, Mundra, Piraeus, Haifa) as a hard time-based measure.
+8. **TFI vintage:** resolved — the pull corresponds to the OECD's 2025
+   publication (March 2025 update), reflecting policies through 2024.
 
 CLOSED since first audits: Jordan CEPA text confirmed; energy shares grounded in
 HS27; intra-Gulf value pulled (GCC-Stat); UAE–EU CEPA added; UAE data-policy stance

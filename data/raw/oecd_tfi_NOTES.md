@@ -5,9 +5,9 @@ Added July 2026. **PULLED 1 Jul 2026** → `data/raw/oecd_tfi_corridor.csv`
 data endpoints (`sim.oecd.org/Graph.ashx?lang=En&ds=TFI&d1c=<group>&d2c=<ISO3>`,
 where group ∈ oecd / hinoecd / umic / lmic — the country's income group;
 dimension labels identical across all 21, verified). Vintage: 2025 per OECD
-*TFI: Monitoring Policies up to 2025* (March 2025) — **to verify**: the
-simulator does not display the vintage year explicitly; cross-check a few
-values against the Compare-your-country 2025 edition before publication.
+*TFI: Monitoring Policies up to 2025* (March 2025) — **resolved**: the pull
+corresponds to the OECD's 2025 publication, reflecting policies through 2024;
+the simulator does not display the vintage year explicitly.
 
 ## Headline finding from the pull (the thesis, in OECD's own assessment)
 Gap = (g) Formalities–automation minus (j) External border agency co-operation:
