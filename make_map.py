@@ -49,7 +49,12 @@ years = [2015, 2017, 2018, 2019, 2022, 2023]   # 2020-21 omitted (COVID crash + 
 yoy = {yr: {iso: 100 * (d[iso][yr] / d[iso][yr - 1] - 1) for iso in d} for yr in years}
 
 # ---- Step 2: draw one small map per year -------------------------------------
-world = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
+try:
+    world = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
+except AttributeError:
+    raise SystemExit("geopandas >= 1.0 removed the bundled Natural Earth dataset. "
+                     "Install the pinned versions from the README: "
+                     "pip install 'geopandas==0.13.2' 'fiona==1.9.6'")
 world["iso"] = world["iso_a3"]
 world.loc[world["name"] == "France", "iso"] = "FRA"
 

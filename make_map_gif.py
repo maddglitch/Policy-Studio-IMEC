@@ -31,7 +31,12 @@ years = list(range(2014, 2024))
 yoy = {yr: {iso: 100 * (d[iso][yr] / d[iso][yr - 1] - 1)
             for iso in d if yr in d[iso] and (yr - 1) in d[iso]} for yr in years}
 
-world = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
+try:
+    world = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
+except AttributeError:
+    raise SystemExit("geopandas >= 1.0 removed the bundled Natural Earth dataset. "
+                     "Install the pinned versions from the README: "
+                     "pip install 'geopandas==0.13.2' 'fiona==1.9.6'")
 world["iso"] = world["iso_a3"]
 
 centroid = {"BRN": (4.9, 114.7), "KHM": (12.0, 105.0), "IDN": (-2.2, 113.0),

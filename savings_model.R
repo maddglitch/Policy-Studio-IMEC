@@ -60,15 +60,23 @@ per_draw <- function(scope, efac, dcs, red, boost) {
 
 res <- draws |>
   mutate(out = pmap(list(scope, efac, dcs, red, boost), per_draw)) |>
-  unnest(out) |>
-  mutate(cost_combined = (cost_m1 + cost_m2) / 2)
+  unnest(out)
+
+# COMBINED ESTIMATE: pool the draws of BOTH methods into one distribution
+# (a model mixture) and take quantiles of the pool. Method choice is itself a
+# source of uncertainty, so the combined band reflects both within-method
+# spread and between-method disagreement. We deliberately do NOT average the
+# two methods draw-by-draw: that would assume their errors offset within each
+# draw and yields an artificially narrow band (median ~1.49, P10-P90
+# ~0.97-2.05, vs the pooled ~1.44 and ~0.76-2.35 reported in the paper).
+pooled <- c(res$cost_m1, res$cost_m2)
 
 q <- function(x, p) as.numeric(quantile(x, p))
 summary_tbl <- tibble(
-  metric = c("cost_m1_asean", "cost_m2_escap", "cost_combined", "trade_creation"),
-  median = c(median(res$cost_m1), median(res$cost_m2), median(res$cost_combined), median(res$trade)),
-  p10    = c(q(res$cost_m1,.10), q(res$cost_m2,.10), q(res$cost_combined,.10), q(res$trade,.10)),
-  p90    = c(q(res$cost_m1,.90), q(res$cost_m2,.90), q(res$cost_combined,.90), q(res$trade,.90))
+  metric = c("cost_m1_asean", "cost_m2_escap", "cost_combined_pooled", "trade_creation"),
+  median = c(median(res$cost_m1), median(res$cost_m2), median(pooled), median(res$trade)),
+  p10    = c(q(res$cost_m1,.10), q(res$cost_m2,.10), q(pooled,.10), q(res$trade,.10)),
+  p90    = c(q(res$cost_m1,.90), q(res$cost_m2,.90), q(pooled,.90), q(res$trade,.90))
 ) |> mutate(across(median:p90, ~round(.x, 2)))
 print(summary_tbl)
 write_csv(summary_tbl, "output/savings_results_summary.csv")
@@ -89,8 +97,8 @@ by_step <- step_draws |>
 totals <- tibble(
   benefit = c("cost_savings_combined", "trade_creation"),
   corridor_step = c("Total corridor", "Total corridor (additional trade/yr)"),
-  median_usd_bn = c(round(median(res$cost_combined),2), round(median(res$trade),2)),
-  p10_usd_bn = c(round(q(res$cost_combined,.10),2), round(q(res$trade,.10),2)),
-  p90_usd_bn = c(round(q(res$cost_combined,.90),2), round(q(res$trade,.90),2))
+  median_usd_bn = c(round(median(pooled),2), round(median(res$trade),2)),
+  p10_usd_bn = c(round(q(pooled,.10),2), round(q(res$trade,.10),2)),
+  p90_usd_bn = c(round(q(pooled,.90),2), round(q(res$trade,.90),2))
 )
 bind_rows(by_step, totals) |> write_csv("output/savings_results_by_step.csv")

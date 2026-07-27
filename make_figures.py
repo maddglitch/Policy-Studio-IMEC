@@ -225,13 +225,20 @@ def fig_contrast_scatter():
 # --------------------------------------------- Figure 4: savings by step
 def fig_savings_steps():
     rows = list(csv.DictReader(open("output/savings_results_by_step.csv")))
-    labels = {"Step 1 (anchor link: UAE-India)": "Step 1\nUAE–India link",
-              "Step 2 (Gulf integration: intra-Gulf)": "Step 2\nGulf integration",
-              "Step 3 (connect EU: Gulf-EU + India-EU)": "Step 3\nEU connection",
-              "Total corridor": "Whole corridor"}
-    steps = [(labels[r["corridor_step"]], float(r["median_usd_bn"]),
+    # Match steps by prefix so label wording in the CSV can evolve without
+    # silently dropping bars (a clean-rerun bug caught by an external replication).
+    labels = {"Step 1": "Step 1\nUAE–India link",
+              "Step 2": "Step 2\nGulf integration",
+              "Step 3": "Step 3\nEU connection"}
+    def step_key(name):
+        for k in labels:
+            if name.startswith(k):
+                return k
+        return None
+    steps = [(labels[step_key(r["corridor_step"])], float(r["median_usd_bn"]),
               float(r["p10_usd_bn"]), float(r["p90_usd_bn"]))
-             for r in rows if r["corridor_step"] in labels]
+             for r in rows if step_key(r["corridor_step"])]
+    assert len(steps) == 3, f"expected 3 corridor steps, matched {len(steps)} - check labels in savings_results_by_step.csv"
     fig, ax = plt.subplots(figsize=(9.6, 5.2), dpi=200)
     cols = [SLATE, SLATE, SLATE, SLATE_DARK]
     for i, (lab, med, p10, p90) in enumerate(steps):

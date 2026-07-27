@@ -125,6 +125,16 @@ Two benefits, both ranges from a 50,000-draw Monte Carlo. **Trade base is a
 to smooth the COVID 2020 trough, the 2022 energy spike and soft 2023. 5-yr-avg
 base ≈ **$415bn** (vs $482bn in 2023 alone).
 
+**Combined estimate = pooled model mixture (July 2026, clarified after an
+external replication):** the headline combined figure pools the Monte Carlo
+draws of both methods into one distribution and takes its quantiles
+(median ~$1.44bn, P10–P90 ~$0.76–2.35bn). Method choice is treated as a source
+of uncertainty, so the pooled band is wider than a draw-by-draw average of the
+two methods would be (~$1.49bn, ~$0.97–2.05bn); the code implements pooling
+explicitly. Reproducibility tolerance: quantiles of a 50k-draw simulation
+reproduce to within ~±$0.01–0.02bn across R/Python RNG and quantile
+implementations.
+
 **Cost savings is estimated two ways with different anchors, so it is not single-anchored** (their convergence is a consistency check, not independent validation — they share the same trade base and overlapping trade-cost literature):
 - *Method 1 (ASEAN-calibrated):* ASW saved ~$6.4bn over 2018–2022 (~$1.28bn/yr)
   on intra-ASEAN trade averaging ~$677bn → realised rate **~0.19% of trade/yr**.

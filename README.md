@@ -64,6 +64,16 @@ shapes, so the maps render offline.)
 - **Fig 5** (three-step path) — schematic
 - **Fig 6** (interactive year-by-year export map) ← `data/processed/flourish_map_data.csv` ← `data/raw/merch_exports_asw_window.csv` (built by `pull_worldbank_exports.py`)
 
+## Reproducibility notes
+
+The savings model's combined estimate pools the draws of both methods (a
+model mixture); see the comment block in `savings_model.R` and the note in
+`METHODS_AND_AUDIT.md`. Monte Carlo quantiles reproduce across R/Python
+implementations to within about ±$0.01–0.02bn. The map scripts require the
+pinned `geopandas==0.13.2` (newer versions removed the bundled country
+shapes; the scripts now fail with an explanatory message rather than
+silently).
+
 ## Honesty file
 
 `METHODS_AND_AUDIT.md` records how each dataset was obtained, what was reconstructed

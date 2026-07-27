@@ -1,5 +1,5 @@
 metric,median,p10,p90
 cost_m1_asean,1.61,0.83,2.38
 cost_m2_escap,1.29,0.70,2.27
-cost_combined,1.44,0.76,2.35
+cost_combined_pooled,1.44,0.76,2.35
 trade_creation,7.47,4.23,10.75
