@@ -178,5 +178,9 @@ corridor-specific estimates).
 ## GCC
 
 **Intra-GCC trade** — GCC Statistical Centre (GCC-Stat), https://gccstat.org/,
-2023: intra-GCC merchandise ~$133bn. Also: Gulf customs union; January 2026 GCC
-decision to link members' customs data.
+2023: intra-GCC merchandise ~$133bn. Also: Gulf customs union; December 2025 GCC Supreme Council approval
+of a Customs Data Exchange Platform (gradual operation from H2 2026).
+
+
+## ASEAN savings benchmark: reconciliation note (July 2026)
+Published ASW savings figures diverge: ~$6.4bn cumulative 2018-2022 (US government material, OECD-cited, ultimately linked to Vietnam NTR figures) vs ASEAN's own ~$150m and 6m business days for 2022. Period, scope (e-Form D vs full ASW), and definition of savings likely differ; unresolved. The model's 0.19%/yr rate is the higher-end published reading; all corridor savings scale linearly with it (ASEAN's own figure implies roughly $0.2-0.3bn/yr corridor savings). All headline figures are therefore presented as scenarios.

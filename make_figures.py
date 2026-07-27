@@ -115,7 +115,7 @@ def fig_untfs_trend():
     for s in ["top", "right"]: ax.spines[s].set_visible(False)
     ax.grid(color="#F0F0F0", lw=0.7)
     headline(fig,
-        "Everyone built the systems — at least on paper",
+        "On paper, India, Gulf and EU governments report trade digitization on par with Southeast Asia's",
         "Every two years the UN asks governments how much of their trade paperwork has gone digital. By 2025, the Middle East\n"
         "corridor's scores match or beat Southeast Asia's — the region that already runs a shared customs system.")
     plt.tight_layout(rect=[0, 0, 1, 0.85])
@@ -151,7 +151,7 @@ def fig_tfi_gap():
     for s in ["top", "right", "left"]: ax.spines[s].set_visible(False)
     ax.grid(axis="x", color="#EEEEEE", lw=0.8, zorder=0)
     headline(fig,
-        "Customs went digital at home, but countries never connected their systems",
+        "The Gulf and the UAE show the biggest gaps between automation at home and cross-border co-operation",
         "Independent OECD assessments of each place, on two questions: how digital its customs systems are at home (purple), and\n"
         "how well its border agencies work with other countries' (orange). The wider the gap, the more it has built but not connected.")
     plt.tight_layout(rect=[0, 0, 1, 0.86])
@@ -178,7 +178,7 @@ def fig_contrast_scatter():
         if iso in {"QAT", "SAU", "JOR", "IND", "ARE", "DEU", "FRA", "SGP"}:
             ax.annotate(disp.get(iso, iso), (x, y), textcoords="offset points", xytext=(5, 4), fontsize=9, color="#333333")
     ax.plot([30, 105], [30, 105], ls="--", lw=1, color="#CCCCCC", zorder=1)
-    ax.text(97, 91, "reports match reality", fontsize=8.5, color="#999999", rotation=38, ha="right")
+    ax.text(97, 91, "scores match ratings", fontsize=8.5, color="#999999", rotation=38, ha="right")
     import numpy as _np
     _xs = [x for iso, (x, y, reg) in ready.items() if y is not None]
     _ys = [y for iso, (x, y, reg) in ready.items() if y is not None]
@@ -187,9 +187,9 @@ def fig_contrast_scatter():
     ax.plot(_xr, _m * _xr + _b, lw=2.2, color="#444444", zorder=2)
     ax.text(0.03, 0.05, "average relationship: flat\nrank correlation \u2248 0.00", transform=ax.transAxes,
             fontsize=10, color="#444444", fontweight="bold")
-    ax.set_xlabel("What governments report to the UN (score out of 100)", fontsize=10.5)
-    ax.set_ylabel("How customs actually performs\n(World Bank score out of 100)", fontsize=10.5)
-    ax.set_title("What governments say about themselves:\nno relationship with performance", fontsize=11, color=TITLE, loc="left")
+    ax.set_xlabel("UN survey single-window implementation score (out of 100)", fontsize=10.5)
+    ax.set_ylabel("Customs efficiency, as rated by freight\nprofessionals (World Bank LPI, 0-100)", fontsize=10.5)
+    ax.set_title("UN survey implementation score:\nno relationship with rated efficiency", fontsize=11, color=TITLE, loc="left")
     ax.set_xlim(58, 106); ax.set_ylim(25, 95)
     ax = axes[1]
     for iso, jv in tfi_j.items():
@@ -205,8 +205,8 @@ def fig_contrast_scatter():
     ax.text(0.03, 0.9, "average relationship: rising\nrank correlation \u2248 0.62", transform=ax.transAxes,
             fontsize=10, color="#444444", fontweight="bold")
     ax.set_xlabel("Cooperation with other countries' border agencies,\nscored by OECD assessors (0–2)", fontsize=10.5)
-    ax.set_ylabel("How customs actually performs\n(World Bank score out of 100)", fontsize=10.5)
-    ax.set_title("What independent assessors measure:\ntracks performance closely", fontsize=11, color=TITLE, loc="left")
+    ax.set_ylabel("Customs efficiency, as rated by freight\nprofessionals (World Bank LPI, 0-100)", fontsize=10.5)
+    ax.set_title("OECD external co-operation score:\ntracks rated efficiency closely", fontsize=11, color=TITLE, loc="left")
     ax.set_xlim(0.3, 2.05); ax.set_ylim(25, 95)
     handles = [plt.Line2D([], [], marker="o", ls="", color=c, label=leglab[r]) for r, c in regcol.items()]
     fig.legend(handles=handles, loc="lower center", ncol=5, frameon=False, fontsize=9.5, bbox_to_anchor=(0.5, -0.02))
@@ -214,12 +214,12 @@ def fig_contrast_scatter():
         for s in ["top", "right"]: ax.spines[s].set_visible(False)
         ax.grid(color="#F0F0F0", lw=0.7, zorder=0)
     headline(fig,
-        "Governments' self-reported scores don't match real performance. Independent scores do.",
-        "Each dot is a country, colored by region; the dark line is the average relationship. Left: self-reports tell you nothing about how\n"
-        "fast customs actually clears goods (flat line). Right: independent assessments track it closely (rising line).",
+        "What governments report implementing doesn't predict their customs efficiency; their cross-border co-operation does",
+        "Each dot is a country, colored by region; the dark line is the average relationship. Left: the UN survey's implementation score shows no\n"
+        "relationship with customs efficiency as rated by the freight professionals who use it. Right: the OECD's co-operation score tracks it closely.",
         top=0.99)
     plt.tight_layout(rect=[0, 0.05, 1, 0.86])
-    source_note(fig, "Data: UN Global Survey (2025); OECD Trade Facilitation Indicators (2025); World Bank Logistics Performance Index (2022)")
+    source_note(fig, "Data: UN Global Survey (2025); OECD Trade Facilitation Indicators (2025); World Bank Logistics Performance Index 2023 (survey fielded 2022)")
     save("chart_contrast_scatter")
 
 # --------------------------------------------- Figure 4: savings by step
@@ -240,19 +240,18 @@ def fig_savings_steps():
                     elinewidth=1.6, capsize=6, capthick=1.6, zorder=3)
         ax.text(i, p90 + 0.08, f"${med:.2f}bn", ha="center", fontsize=12.5, fontweight="bold", color=TITLE)
     ax.axhline(0.64, color="#555555", lw=1.4, ls="--", zorder=1)  # most conservative estimate
-    ax.text(-0.45, 0.55, "most conservative: $0.64bn/yr",
-            fontsize=9.2, color="#555555", ha="left", va="center")
+    ax.text(-0.45, 2.30, "dashed line: higher benchmark at current ASEAN scope (~$0.6bn/yr)\nmost conservative benchmark: ~$0.2-0.3bn/yr", fontsize=9.5, color="#555555", va="top")
     ax.set_xticks(range(len(steps))); ax.set_xticklabels([s[0] for s in steps], fontsize=11.5)
     ax.set_ylabel("Estimated savings, $ billions per year", fontsize=11, color="#333333")
     ax.set_ylim(0, 2.75); ax.set_xlim(-0.55, 3.55)
     for s in ["top", "right"]: ax.spines[s].set_visible(False)
     ax.grid(axis="y", color="#EEEEEE", lw=0.8, zorder=0)
     headline(fig,
-        "Connecting the corridor's paperwork is worth about $1.4 billion, every year",
-        "Estimated yearly savings if the corridor's customs systems talked to each other, based on what Southeast Asia's shared system\n"
-        "actually saved. Bars show the typical estimate; thin lines show the range across thousands of runs with different assumptions.")
+        "Connecting the corridor's paperwork could save \\$0.2bn to \\$1.4bn a year, most of it on the EU leg",
+        "A scenario estimate, not a forecast: yearly savings if the corridor's customs systems talked to each other, anchored to reported\n"
+        "savings from Southeast Asia's shared system. Bars show the central scenario; thin lines the range across thousands of runs.")
     plt.tight_layout(rect=[0, 0, 1, 0.86])
-    source_note(fig, "Data: UN Comtrade & GCC-Stat trade values (2019–2023); savings rate calibrated to the ASEAN Single Window's realized savings")
+    source_note(fig, "Data: UN Comtrade & GCC-Stat trade values (2019–2023); savings rate anchored to reported ASEAN Single Window savings figures (see End Notes)")
     save("chart_savings_steps")
 
 # --------------------------------------------- Figure 5: three-step diagram
@@ -264,7 +263,7 @@ def fig_threestep():
     boxes = [(0.02, "STEP 1 - now", "UAE-India link",
               "Digital channel already running\n(since May 2026)\nExpand it to full document exchange", "$0.23bn/yr", GOLD),
              (0.36, "STEP 2 - 2026-28", "Gulf integration",
-              "Turn the Gulf states' January 2026\ncustoms-data agreement\ninto a working system", "$0.45bn/yr", GULF),
+              "Turn the Gulf leaders' December 2025\ncustoms-platform decision\ninto a working system", "$0.45bn/yr", GULF),
              (0.70, "STEP 3 - to ~2031", "EU connection",
               "Connect to the EU's own customs\nsingle window, through the\nUAE-EU trade deal being negotiated", "$0.92bn/yr", EUN)]
     for x, step, title, body, val, c in boxes:
@@ -278,11 +277,10 @@ def fig_threestep():
                     arrowprops=dict(arrowstyle="-|>", color="#888888", lw=2))
     ax.set_xlim(0, 1); ax.set_ylim(0, 1)
     headline(fig,
-        "The three-step path — every step already has a signed agreement behind it",
-        "How the corridor could connect its paperwork, starting from a channel that is already running. Dollar figures are the\n"
-        "estimated yearly savings each step unlocks (from the analysis behind the previous chart).")
-    plt.tight_layout(rect=[0, 0, 1, 0.82])
-    source_note(fig, "Savings estimates from this analysis; step anchors are signed commitments (see post)")
+        "The three-step path to a connected corridor",
+        "")
+    plt.tight_layout(rect=[0, 0, 1, 0.90])
+    source_note(fig, "Illustrative savings scenarios from this analysis; step anchors are existing commitments or legal processes (see post)")
     save("chartB_threestep")
 
 if __name__ == "__main__":

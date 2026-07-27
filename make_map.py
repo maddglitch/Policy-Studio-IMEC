@@ -77,7 +77,7 @@ for ax, yr in zip(axes.flat, years):
     ax.set_title(label, fontsize=12.5, color=TITLE,
                  fontweight="bold" if yr == 2018 else "normal", pad=4)
 
-fig.suptitle("Export growth, one map per year, around the launch of Southeast Asia's shared customs window\n"
+fig.suptitle("After the shared window's 2018 go-live, its smallest members grew exports 10-14% a year, against about 3% for neighbors\n"
              "Each country's color shows how much its goods exports grew that year. ● = member of the shared system. 2020–21 omitted (COVID crash and rebound).",
              fontsize=14.5, fontweight="bold", color=TITLE, x=0.02, ha="left", y=0.97)
 cax = fig.add_axes([0.92, 0.15, 0.016, 0.60])
