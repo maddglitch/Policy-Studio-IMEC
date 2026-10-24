@@ -34,6 +34,15 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+# Optional background override for presentation variants (default: white).
+# Example: FIG_BG="#E9F1F7" python make_figures.py
+FIG_BG = os.environ.get("FIG_BG")
+if FIG_BG:
+    plt.rcParams["figure.facecolor"] = FIG_BG
+    plt.rcParams["savefig.facecolor"] = FIG_BG
+    plt.rcParams["axes.facecolor"] = FIG_BG
+BOXFILL = "#FFFFFF" if FIG_BG else "#F6F5F2"
+
 # ---- the palette (see design rules above) ----
 GULF = "#B23A48"; GULF_DARK = "#7A1E2B"   # Gulf family (UAE = darker Gulf red)
 EUN  = "#1F3864"                           # EU members
@@ -274,7 +283,7 @@ def fig_threestep():
              (0.70, "STEP 3 - to ~2031", "EU connection",
               "Connect to the EU's own customs\nsingle window, through the\nUAE-EU trade deal being negotiated", "$0.92bn/yr", EUN)]
     for x, step, title, body, val, c in boxes:
-        ax.add_patch(plt.Rectangle((x, 0.06), 0.28, 0.76, facecolor="#F6F5F2", edgecolor=c, lw=2))
+        ax.add_patch(plt.Rectangle((x, 0.06), 0.28, 0.76, facecolor=BOXFILL, edgecolor=c, lw=2))
         ax.text(x + 0.14, 0.76, step, ha="center", fontsize=10.5, fontweight="bold", color=c)
         ax.text(x + 0.14, 0.63, title, ha="center", fontsize=12, fontweight="bold", color="#222222")
         ax.text(x + 0.14, 0.38, body, ha="center", fontsize=9, color="#444444")
